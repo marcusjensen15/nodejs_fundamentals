@@ -11,11 +11,22 @@ const path = require('path');
 
 const os = require ('os');
 
+//To work with files and directories in node, we must require the FS module.
+
 const fs = require('fs');
 
 const files = fs.readdirSync('./');
 
-console.log(files);
+//All async methods take a function as their last arguement. node will call this function when that asyncronous operation completes. (callback function)
+
+const asyncFiles = fs.readdir('./', function(err, files){
+
+  if (err) console.log("error",err);
+
+  else console.log('Result', files)
+});
+
+// console.log(files);
 
 
 
