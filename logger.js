@@ -9,4 +9,4 @@ function log(message) {
 
 //we don't need to export all implementation details for use outside of this. (things like variables etc)
 
-module.exports.log = log;
+module.exports= log;

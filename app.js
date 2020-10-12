@@ -1,6 +1,7 @@
 //require function is unique to node, and how we import modules.
+//always upload modules as constants, not vars. so we can't overwrite them
 
-var logger = require('./logger');
+const log = require('./logger');
 
 
-logger.log('sup');
+log('sup');
