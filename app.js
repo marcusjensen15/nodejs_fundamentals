@@ -5,30 +5,33 @@
 
 //ALWAYS USE ASYNC METHODS. NODE OPERATES WITH A SINGLE THREAD.
 
-const log = require('./logger');
+const Logger = require('./logger');
+
+const logger = new Logger();
 
 const path = require('path');
 
 const os = require ('os');
 
-//EventEmmitter is a class. that is why it is double upper case.
-
 const EventEmitter = require('events');
 
-const emitter = new EventEmitter();
 
-// listen for emission. if i register this listener after the event, nothing happens.
-
-emitter.on('messagedLogged', function(arg){
-  console.log(arg);
-});
-
-//raised an event
-
-emitter.emit('messagedLogged', {id: 1, url: "url"});
 
 
 //Register a listener
+// listen for emission. if i register this listener after the event, nothing happens.
+
+logger.on('messagedLogged', (arg) => {
+  console.log("listener called", arg);
+});
+
+
+logger.log('message');
+
+
+
+
+
 
 
 
