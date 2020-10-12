@@ -19,13 +19,13 @@ const emitter = new EventEmitter();
 
 // listen for emission. if i register this listener after the event, nothing happens.
 
-emitter.on('messagedLogged', function(){
-  console.log('Listener called');
+emitter.on('messagedLogged', function(arg){
+  console.log(arg);
 });
 
 //raised an event
 
-emitter.emit('messagedLogged');
+emitter.emit('messagedLogged', {id: 1, url: "url"});
 
 
 //Register a listener
